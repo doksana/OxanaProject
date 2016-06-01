@@ -1,0 +1,25 @@
+{% load staticfiles %}
+    <html>
+        <head>
+            <title>Share your dreams!</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/ShareYourDreams.css' %}">
+
+        </head>
+        <body>
+            <div>
+                <h1 class="heading">Share your dreams to the whole world!</h1>
+                <a href="{% url 'ShareYourDreams.views.dream_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+
+            {% for post in posts %}
+                <div class="dreamstext">
+                    <h1><a href="{% url 'dream_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaks }}</p>
+                    <p>published: {{ post.published_date }}</p>
+                    <a class="btn btn-default" href="{% url 'dream_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+            {% endfor %}
+        </body>
+    </html>
