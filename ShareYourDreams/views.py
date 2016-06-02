@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from django.contrib.auth.models import User
 from django.utils import timezone
-from .forms import PostForm
+from .forms import PostForm, RegistrationForm
 from django.shortcuts import redirect
+from django.http import HttpResponse
 
 # Create your views here.
 def dreams_list(request):
@@ -42,3 +44,17 @@ def dream_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'ShareYourDreams/dream_edit.html', {'form': form})
+
+
+def registration(request):
+    if request.method == "GET":
+        form = RegistrationForm()
+        return render(request, 'ShareYourDreams/registration.html', {'form': form})
+    elif request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=True)
+            return HttpResponse("Registration successful!!!.")
+        else:
+            return HttpResponse("Form is invalid you cocksucker!!!.")
+    return HttpResponse("Suck my cock!!!.")
