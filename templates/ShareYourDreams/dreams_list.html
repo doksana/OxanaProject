@@ -7,10 +7,20 @@
             <link rel="stylesheet" href="{% static 'css/ShareYourDreams.css' %}">
 
         </head>
-        <body>
+        <body id="body">
+
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">About us</button>
+                        <button type="button" class="btn btn-default">Map</button>
+                        <button type="button" class="btn btn-default">Home</button>
+                    </div>
+                </div>
+            </nav>
+
             <div>
-                <h1 class="heading">Share your dreams to the whole world!</h1>
-                <a href="{% url 'ShareYourDreams.views.dream_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <h1 id="heading">Share your dreams to the whole world!<a id="plusbutton" href="{% url 'ShareYourDreams.views.dream_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></h1>
             </div>
 
             {% for post in posts %}

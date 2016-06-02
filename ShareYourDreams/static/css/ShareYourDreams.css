@@ -1,7 +1,27 @@
 .dreamstext {
     font-family: "Comic Sans MS";
+    margin-left: 20px;
 }
 
-.heading {
-    background-color: #ff5965;
+#heading {
+    text-align: center ;
 }
+
+#body {
+    background-image: url("https://wallpaperscraft.com/image/sky_clouds_reflection_boat_86205_3840x2400.jpg");
+    background-repeat: round;
+    background-attachment: fixed;
+}
+
+.container {
+    background: transparent;
+}
+.navbar {
+    background: transparent;
+    border-bottom: transparent;
+}
+
+#plusbutton {
+     ;
+}
+
