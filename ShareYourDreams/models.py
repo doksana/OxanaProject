@@ -21,6 +21,3 @@ class Post(models.Model):
         return self.title
 
 
-class UserProfile (models.Model):
-    field = models.CharField(max_length=10)
-    user = models.OneToOneField(User)
