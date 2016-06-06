@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^post/new/$', views.dream_new, name='dream_new'),
     url(r'^post/(?P<pk>[0-9]+)/edit/$', views.dream_edit, name='dream_edit'),
     url(r'^registration', views.registration, name='registration'),
+    url(r'^logging_in', views.logging_in, name='logging_in'),
 ]
