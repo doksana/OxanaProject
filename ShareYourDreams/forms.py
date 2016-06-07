@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
-# todo suck my dick
 class PostForm(forms.ModelForm):
 
     class Meta:
