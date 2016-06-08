@@ -19,6 +19,18 @@
             </nav>
 
             <div>
+                {% if request.user.is_authenticated %}
+                    <a href="http://127.0.0.1:8000/logging_out"><button type="button">Log out</button></a>
+                {% endif %}
+                {% if request.user.is_anonymous %}
+                    <a href="http://127.0.0.1:8000/logging_in"><button type="button">Log in</button></a>
+                {% endif %}
+                {% if request.user.is_anonymous %}
+                    <a href="http://127.0.0.1:8000/registration"><button type="button">Register</button></a>
+                {% endif %}
+            </div>
+
+            <div>
                 <h1 id="heading">Share your dreams to the whole world!<a id="plusbutton" href="{% url 'ShareYourDreams.views.dream_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></h1>
             </div>
 

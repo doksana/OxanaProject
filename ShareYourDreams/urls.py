@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^post/(?P<pk>[0-9]+)/edit/$', views.dream_edit, name='dream_edit'),
     url(r'^registration', views.registration, name='registration'),
     url(r'^logging_in', views.logging_in, name='logging_in'),
+    url(r'^logging_out', views.logging_out, name='logging_out'),
 ]

@@ -6,6 +6,7 @@ from .forms import PostForm, RegistrationForm, LoggingInForm
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
+from django.contrib.auth import logout, login
 
 # Create your views here.
 def dreams_list(request):
@@ -81,9 +82,19 @@ def logging_in(request):
         if user is not None:
             # the password verified for the user
             if user.is_active:
+                login(request, user)
                 return HttpResponse("User is valid, active and authenticated")
             else:
                 return HttpResponse("The password is valid, but the account has been disabled!")
         else:
             # the authentication system was unable to verify the username and password
             return HttpResponse("The username and password were incorrect.")
+
+
+def logging_out(request):
+    logout(request)
+    if request.user.is_authenticated():
+        return HttpResponse ("You are still logged in!")
+    elif request.user.is_anonymous():
+        return HttpResponse('You loged out and are anonymous now')
+
