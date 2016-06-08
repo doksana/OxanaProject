@@ -16,6 +16,7 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'dream_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'dreams_list' %}"><span class="glyphicon glyphicon-home"></span></a>
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
 
